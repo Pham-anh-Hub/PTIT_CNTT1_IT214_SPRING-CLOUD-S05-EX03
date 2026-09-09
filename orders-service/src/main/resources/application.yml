@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: orders-service
+  config:
+    import: optional:configserver:http://localhost:8888
+
+#  Cấu hình đang có lỗi
+  cloud:
+    gateway:
+      routes:
+        - id: product-service-route
+          uri: http://product-service
+          predicates:
+            - Path=/api/products/**
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+server:
+    port: 8083
+
+

@@ -1,0 +1,2 @@
+rootProject.name = 'VietMart-Microservice-SS05'
+include 'config-service', 'eureka-service', 'orders-service', 'api-gateway'
